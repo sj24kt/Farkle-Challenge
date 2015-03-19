@@ -14,6 +14,7 @@
 		1831DEE71ABB0B2A00F17CBE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1831DEE61ABB0B2A00F17CBE /* Images.xcassets */; };
 		1831DEEA1ABB0B2A00F17CBE /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1831DEE81ABB0B2A00F17CBE /* LaunchScreen.xib */; };
 		1831DEF61ABB0B2B00F17CBE /* FarkleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1831DEF51ABB0B2B00F17CBE /* FarkleTests.m */; };
+		18F089F41ABB4D4700C18650 /* DieLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F089F31ABB4D4700C18650 /* DieLabel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +41,8 @@
 		1831DEEF1ABB0B2B00F17CBE /* FarkleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FarkleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1831DEF41ABB0B2B00F17CBE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1831DEF51ABB0B2B00F17CBE /* FarkleTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FarkleTests.m; sourceTree = "<group>"; };
+		18F089F21ABB4D4700C18650 /* DieLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DieLabel.h; sourceTree = "<group>"; };
+		18F089F31ABB4D4700C18650 /* DieLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DieLabel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +88,8 @@
 				1831DEDE1ABB0B2A00F17CBE /* AppDelegate.m */,
 				1831DEE01ABB0B2A00F17CBE /* RootViewController.h */,
 				1831DEE11ABB0B2A00F17CBE /* RootViewController.m */,
+				18F089F21ABB4D4700C18650 /* DieLabel.h */,
+				18F089F31ABB4D4700C18650 /* DieLabel.m */,
 				1831DEE31ABB0B2A00F17CBE /* Main.storyboard */,
 				1831DEE61ABB0B2A00F17CBE /* Images.xcassets */,
 				1831DEE81ABB0B2A00F17CBE /* LaunchScreen.xib */,
@@ -222,6 +227,7 @@
 				1831DEE21ABB0B2A00F17CBE /* RootViewController.m in Sources */,
 				1831DEDF1ABB0B2A00F17CBE /* AppDelegate.m in Sources */,
 				1831DEDC1ABB0B2A00F17CBE /* main.m in Sources */,
+				18F089F41ABB4D4700C18650 /* DieLabel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -412,6 +418,7 @@
 				1831DEFB1ABB0B2B00F17CBE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		1831DEFC1ABB0B2B00F17CBE /* Build configuration list for PBXNativeTarget "FarkleTests" */ = {
 			isa = XCConfigurationList;
@@ -420,6 +427,7 @@
 				1831DEFE1ABB0B2B00F17CBE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -7,8 +7,15 @@
 //
 
 #import "RootViewController.h"
+#import "DieLabel.h"
 
-@interface RootViewController ()
+@interface RootViewController () <DieLabelDelegate>
+
+@property IBOutletCollection(DieLabel) NSArray *labels;
+@property (weak, nonatomic) IBOutlet UILabel *userScore;
+@property (weak, nonatomic) IBOutlet UIButton *rollButton;
+@property NSMutableArray *die;
+@property NSMutableArray *selectedDies;
 
 @end
 
@@ -16,12 +23,55 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+
+    self.die = [NSMutableArray new];
+    self.selectedDies = [@[@"1", @"5"]mutableCopy];
+
+    for (DieLabel *label in self.labels) {
+        label.delegate = self;
+    }
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+-(void)onDieLabelTapped:(UILabel *)label {
+    //
+    label.backgroundColor = [UIColor colorWithRed:22/255.0 green:128/255.0 blue:18/255.0 alpha:1.0f];
+}
+
+// calls the roll method in DieLabel.m when roll button is pressed
+// gets new random number for each die
+- (IBAction)onRollPressed:(UIButton *)sender {
+
+    // call the roll method on each DieLabel
+    // fast enumerates through your IBOutletCollecion of die labels 
+    for (DieLabel * label in self.labels) {
+        [label roll];
+    }
 }
 
 @end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
