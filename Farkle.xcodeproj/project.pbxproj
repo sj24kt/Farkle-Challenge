@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		181A05371ABF712C00D3E6D5 /* CalculateScore.m in Sources */ = {isa = PBXBuildFile; fileRef = 181A05361ABF712C00D3E6D5 /* CalculateScore.m */; };
 		1831DEDC1ABB0B2A00F17CBE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1831DEDB1ABB0B2A00F17CBE /* main.m */; };
 		1831DEDF1ABB0B2A00F17CBE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1831DEDE1ABB0B2A00F17CBE /* AppDelegate.m */; };
 		1831DEE21ABB0B2A00F17CBE /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1831DEE11ABB0B2A00F17CBE /* RootViewController.m */; };
@@ -28,6 +29,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		181A05351ABF712C00D3E6D5 /* CalculateScore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalculateScore.h; sourceTree = "<group>"; };
+		181A05361ABF712C00D3E6D5 /* CalculateScore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalculateScore.m; sourceTree = "<group>"; };
 		1831DED61ABB0B2A00F17CBE /* Farkle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Farkle.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1831DEDA1ABB0B2A00F17CBE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1831DEDB1ABB0B2A00F17CBE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -88,6 +91,8 @@
 				1831DEDE1ABB0B2A00F17CBE /* AppDelegate.m */,
 				1831DEE01ABB0B2A00F17CBE /* RootViewController.h */,
 				1831DEE11ABB0B2A00F17CBE /* RootViewController.m */,
+				181A05351ABF712C00D3E6D5 /* CalculateScore.h */,
+				181A05361ABF712C00D3E6D5 /* CalculateScore.m */,
 				18F089F21ABB4D4700C18650 /* DieLabel.h */,
 				18F089F31ABB4D4700C18650 /* DieLabel.m */,
 				1831DEE31ABB0B2A00F17CBE /* Main.storyboard */,
@@ -228,6 +233,7 @@
 				1831DEDF1ABB0B2A00F17CBE /* AppDelegate.m in Sources */,
 				1831DEDC1ABB0B2A00F17CBE /* main.m in Sources */,
 				18F089F41ABB4D4700C18650 /* DieLabel.m in Sources */,
+				181A05371ABF712C00D3E6D5 /* CalculateScore.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

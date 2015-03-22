@@ -8,24 +8,32 @@
 
 #import "DieLabel.h"
 
+@interface DieLabel () {
+    UIImage *image;
+}
+@end
+
+
 @implementation DieLabel
 
+// call delegate-protocol method on DieLabel's property
 // connect it to the tap gesture recognizer for each die
-- (IBAction)onTapped:(UITapGestureRecognizer *)sender {
-    [self.delegate onDieLabelTapped:self];
+- (IBAction)labelWasTapped:(UITapGestureRecognizer*)tapGestureReconizer {
+
+    if(tapGestureReconizer.state == UIGestureRecognizerStateEnded) {
+        //tell the delegate a lable was tapped
+        [self.delegate onDieLabelTapped:self];
+    }
 }
 
 // gets a random number - called for each die when roll button is pressed
 - (void)roll {
-
-    if (!self.isKept) {
-        NSInteger random = arc4random_uniform(6) + 1;
-        [self setText:[NSString stringWithFormat:@"%ld", (long)random]];
-
-        // set die background color to green
-        //self.backgroundColor = [UIColor colorWithRed:76/255.0 green:153/255.0 blue:0/255.0 alpha:1.0f];
-    }
+    NSInteger randomNumber = arc4random_uniform(6) + 1;
+    //int randomNumber = (arc4random()%6)+1;
+    self.text = [NSString stringWithFormat:@"%li",(long)randomNumber];
+    image = [UIImage imageNamed:[NSString stringWithFormat:@"dice%li",(long)randomNumber]];
 }
+
 
 @end
 

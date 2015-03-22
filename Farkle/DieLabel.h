@@ -8,15 +8,17 @@
 
 #import <UIKit/UIKit.h>
 
+// create the protocol
 @protocol DieLabelDelegate
-- (void)onDieLabelTapped:(UILabel *)label;
+- (void)onDieLabelTapped:(UILabel *)dieLabel;
 @end
 
 @interface DieLabel : UILabel
 
-// set the delegate
+// add a property to DieLabel called delegate of type id
 @property (nonatomic, assign) id <DieLabelDelegate> delegate;
-@property BOOL isKept;
+
+@property BOOL isHeld;
 
 - (void)roll;
 
