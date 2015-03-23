@@ -17,6 +17,87 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
+                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OrY-GS-M1c" userLabel="DieLabel 1" customClass="DieLabel">
+                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="82j-bD-P55"/>
+                                    <constraint firstAttribute="width" constant="50" id="mkk-fl-Pfv"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="black" pointSize="18"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="82j-bD-P55"/>
+                                        <exclude reference="mkk-fl-Pfv"/>
+                                    </mask>
+                                </variation>
+                                <variation key="widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="82j-bD-P55"/>
+                                        <include reference="mkk-fl-Pfv"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="Etq-Dx-yQN" appends="YES" id="pSU-Jr-5zl"/>
+                                </connections>
+                            </label>
+                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" text="2" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZLW-o4-Mqu" userLabel="DieLabel 2" customClass="DieLabel">
+                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="3kB-ef-OHA"/>
+                                    <constraint firstAttribute="height" constant="50" id="a0B-Sm-W18"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="black" pointSize="18"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="3kB-ef-OHA"/>
+                                        <exclude reference="a0B-Sm-W18"/>
+                                    </mask>
+                                </variation>
+                                <variation key="widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="3kB-ef-OHA"/>
+                                        <include reference="a0B-Sm-W18"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="yig-Cz-TkB" appends="YES" id="0Tx-a4-hSk"/>
+                                </connections>
+                            </label>
+                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6WT-Ku-ego" userLabel="DieLabel 3" customClass="DieLabel">
+                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="54F-Oa-ZaO"/>
+                                    <constraint firstAttribute="height" constant="50" id="ABf-Oe-XKj"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="black" pointSize="18"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="54F-Oa-ZaO"/>
+                                        <exclude reference="ABf-Oe-XKj"/>
+                                    </mask>
+                                </variation>
+                                <variation key="widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="54F-Oa-ZaO"/>
+                                        <include reference="ABf-Oe-XKj"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="G9u-xj-esh" appends="YES" id="aja-av-zvW"/>
+                                </connections>
+                            </label>
                             <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pmo-u6-TEZ" userLabel="DieLabel 4" customClass="DieLabel">
                                 <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                                 <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -214,7 +295,7 @@
                                     <action selector="onRollButtonPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="Mlq-MD-z9B"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Current Turn Points:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qG4-pT-UpV">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Current Turn Points" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qG4-pT-UpV">
                                 <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="164" id="YlA-cE-v3u"/>
@@ -236,131 +317,55 @@
                                     </mask>
                                 </variation>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bank Your Points:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aXX-gh-ecs">
-                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yfK-Nv-eLs">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="22" id="sTZ-M7-bKS"/>
-                                    <constraint firstAttribute="width" constant="142" id="vzl-zF-jBJ"/>
+                                    <constraint firstAttribute="height" constant="32" id="W7u-fy-Por"/>
+                                    <constraint firstAttribute="width" constant="164" id="X3t-14-3N5"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="black" pointSize="16"/>
-                                <color key="textColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
+                                <state key="normal" title="Bank Your Points">
+                                    <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
                                 <variation key="default">
                                     <mask key="constraints">
-                                        <exclude reference="sTZ-M7-bKS"/>
-                                        <exclude reference="vzl-zF-jBJ"/>
+                                        <exclude reference="W7u-fy-Por"/>
+                                        <exclude reference="X3t-14-3N5"/>
                                     </mask>
                                 </variation>
                                 <variation key="widthClass=compact">
                                     <mask key="constraints">
-                                        <include reference="sTZ-M7-bKS"/>
-                                        <include reference="vzl-zF-jBJ"/>
-                                    </mask>
-                                </variation>
-                            </label>
-                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OrY-GS-M1c" userLabel="DieLabel 1" customClass="DieLabel">
-                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
-                                <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <gestureRecognizers/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="82j-bD-P55"/>
-                                    <constraint firstAttribute="width" constant="50" id="mkk-fl-Pfv"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" weight="black" pointSize="18"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="82j-bD-P55"/>
-                                        <exclude reference="mkk-fl-Pfv"/>
-                                    </mask>
-                                </variation>
-                                <variation key="widthClass=compact">
-                                    <mask key="constraints">
-                                        <include reference="82j-bD-P55"/>
-                                        <include reference="mkk-fl-Pfv"/>
+                                        <include reference="W7u-fy-Por"/>
+                                        <include reference="X3t-14-3N5"/>
                                     </mask>
                                 </variation>
                                 <connections>
-                                    <outletCollection property="gestureRecognizers" destination="Etq-Dx-yQN" appends="YES" id="pSU-Jr-5zl"/>
+                                    <action selector="onBankPointsScoredPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="KSx-t6-Rdv"/>
                                 </connections>
-                            </label>
-                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" text="2" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZLW-o4-Mqu" userLabel="DieLabel 2" customClass="DieLabel">
-                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
-                                <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <gestureRecognizers/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="50" id="3kB-ef-OHA"/>
-                                    <constraint firstAttribute="height" constant="50" id="a0B-Sm-W18"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" weight="black" pointSize="18"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="3kB-ef-OHA"/>
-                                        <exclude reference="a0B-Sm-W18"/>
-                                    </mask>
-                                </variation>
-                                <variation key="widthClass=compact">
-                                    <mask key="constraints">
-                                        <include reference="3kB-ef-OHA"/>
-                                        <include reference="a0B-Sm-W18"/>
-                                    </mask>
-                                </variation>
-                                <connections>
-                                    <outletCollection property="gestureRecognizers" destination="yig-Cz-TkB" appends="YES" id="0Tx-a4-hSk"/>
-                                </connections>
-                            </label>
-                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6WT-Ku-ego" userLabel="DieLabel 3" customClass="DieLabel">
-                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
-                                <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <gestureRecognizers/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="50" id="54F-Oa-ZaO"/>
-                                    <constraint firstAttribute="height" constant="50" id="ABf-Oe-XKj"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" weight="black" pointSize="18"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="54F-Oa-ZaO"/>
-                                        <exclude reference="ABf-Oe-XKj"/>
-                                    </mask>
-                                </variation>
-                                <variation key="widthClass=compact">
-                                    <mask key="constraints">
-                                        <include reference="54F-Oa-ZaO"/>
-                                        <include reference="ABf-Oe-XKj"/>
-                                    </mask>
-                                </variation>
-                                <connections>
-                                    <outletCollection property="gestureRecognizers" destination="G9u-xj-esh" appends="YES" id="aja-av-zvW"/>
-                                </connections>
-                            </label>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="qG4-pT-UpV" firstAttribute="top" secondItem="fhl-dz-kT7" secondAttribute="bottom" constant="18" id="86n-eh-raB"/>
-                            <constraint firstAttribute="centerX" secondItem="aXX-gh-ecs" secondAttribute="centerX" id="9GS-sT-ifS"/>
                             <constraint firstItem="cAD-Db-59d" firstAttribute="leading" secondItem="pmo-u6-TEZ" secondAttribute="trailing" constant="15" id="AwK-qd-Koo"/>
                             <constraint firstItem="sTu-ti-aDq" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="BkN-Mu-nzS"/>
+                            <constraint firstAttribute="centerX" secondItem="yfK-Nv-eLs" secondAttribute="centerX" id="Coh-1I-SIe"/>
                             <constraint firstItem="Sc6-Uc-ObL" firstAttribute="trailing" secondItem="kh9-bI-dsS" secondAttribute="trailingMargin" id="Egr-gW-dBN"/>
                             <constraint firstAttribute="centerX" secondItem="ZLW-o4-Mqu" secondAttribute="centerX" id="K01-dz-Qax"/>
                             <constraint firstItem="6WT-Ku-ego" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="30" id="Kbu-UY-KAb"/>
-                            <constraint firstItem="fhl-dz-kT7" firstAttribute="top" secondItem="aXX-gh-ecs" secondAttribute="bottom" constant="8" id="NKW-os-8vQ"/>
                             <constraint firstAttribute="centerX" secondItem="O4h-tn-gxM" secondAttribute="centerX" id="Nu1-ZD-bHx"/>
                             <constraint firstItem="sTu-ti-aDq" firstAttribute="top" secondItem="qG4-pT-UpV" secondAttribute="bottom" constant="10" id="OfG-pt-w6N"/>
                             <constraint firstItem="ZLW-o4-Mqu" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="29" id="RCO-QB-nMa"/>
                             <constraint firstAttribute="centerX" secondItem="qG4-pT-UpV" secondAttribute="centerX" id="Tqw-1J-1Az"/>
-                            <constraint firstItem="vbq-eo-Cal" firstAttribute="top" secondItem="aXX-gh-ecs" secondAttribute="bottom" constant="8" id="Y4u-0t-pBa"/>
+                            <constraint firstItem="vbq-eo-Cal" firstAttribute="top" secondItem="yfK-Nv-eLs" secondAttribute="bottom" constant="9" id="UUH-pU-mAP"/>
+                            <constraint firstItem="yfK-Nv-eLs" firstAttribute="top" secondItem="O4h-tn-gxM" secondAttribute="bottom" constant="25" id="VI0-6U-P5f"/>
                             <constraint firstItem="6WT-Ku-ego" firstAttribute="leading" secondItem="ZLW-o4-Mqu" secondAttribute="trailing" constant="15" id="YB6-Xw-Yov"/>
                             <constraint firstAttribute="centerX" secondItem="cAD-Db-59d" secondAttribute="centerX" id="Zu5-G3-9Iz"/>
+                            <constraint firstItem="fhl-dz-kT7" firstAttribute="top" secondItem="yfK-Nv-eLs" secondAttribute="bottom" constant="9" id="afZ-gE-kPt"/>
                             <constraint firstItem="vbq-eo-Cal" firstAttribute="trailing" secondItem="kh9-bI-dsS" secondAttribute="trailingMargin" id="cjE-J3-zRk"/>
                             <constraint firstItem="fhl-dz-kT7" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="d5P-WG-SZ6"/>
                             <constraint firstItem="VoL-UZ-pCh" firstAttribute="leading" secondItem="cAD-Db-59d" secondAttribute="trailing" constant="15" id="ebv-ud-3Hb"/>
-                            <constraint firstItem="aXX-gh-ecs" firstAttribute="top" secondItem="O4h-tn-gxM" secondAttribute="bottom" constant="36" id="fUu-0M-vxm"/>
                             <constraint firstItem="ZLW-o4-Mqu" firstAttribute="leading" secondItem="OrY-GS-M1c" secondAttribute="trailing" constant="15" id="iiW-hf-6en"/>
                             <constraint firstItem="OrY-GS-M1c" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="29" id="iy2-z9-i0L"/>
                             <constraint firstItem="cAD-Db-59d" firstAttribute="top" secondItem="ZLW-o4-Mqu" secondAttribute="bottom" constant="15" id="kuk-eT-vsW"/>
@@ -371,6 +376,9 @@
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
+                                <exclude reference="OrY-GS-M1c"/>
+                                <exclude reference="ZLW-o4-Mqu"/>
+                                <exclude reference="6WT-Ku-ego"/>
                                 <exclude reference="pmo-u6-TEZ"/>
                                 <exclude reference="cAD-Db-59d"/>
                                 <exclude reference="VoL-UZ-pCh"/>
@@ -380,10 +388,7 @@
                                 <exclude reference="fhl-dz-kT7"/>
                                 <exclude reference="O4h-tn-gxM"/>
                                 <exclude reference="qG4-pT-UpV"/>
-                                <exclude reference="aXX-gh-ecs"/>
-                                <exclude reference="OrY-GS-M1c"/>
-                                <exclude reference="ZLW-o4-Mqu"/>
-                                <exclude reference="6WT-Ku-ego"/>
+                                <exclude reference="yfK-Nv-eLs"/>
                             </mask>
                             <mask key="constraints">
                                 <exclude reference="iy2-z9-i0L"/>
@@ -400,15 +405,15 @@
                                 <exclude reference="rVi-y9-pa4"/>
                                 <exclude reference="ebv-ud-3Hb"/>
                                 <exclude reference="z1N-ga-8OT"/>
-                                <exclude reference="9GS-sT-ifS"/>
-                                <exclude reference="fUu-0M-vxm"/>
-                                <exclude reference="NKW-os-8vQ"/>
+                                <exclude reference="Coh-1I-SIe"/>
+                                <exclude reference="VI0-6U-P5f"/>
+                                <exclude reference="afZ-gE-kPt"/>
                                 <exclude reference="d5P-WG-SZ6"/>
                                 <exclude reference="86n-eh-raB"/>
                                 <exclude reference="Tqw-1J-1Az"/>
                                 <exclude reference="BkN-Mu-nzS"/>
                                 <exclude reference="OfG-pt-w6N"/>
-                                <exclude reference="Y4u-0t-pBa"/>
+                                <exclude reference="UUH-pU-mAP"/>
                                 <exclude reference="cjE-J3-zRk"/>
                                 <exclude reference="Egr-gW-dBN"/>
                                 <exclude reference="q7k-tx-Lm1"/>
@@ -416,6 +421,9 @@
                         </variation>
                         <variation key="widthClass=compact">
                             <mask key="subviews">
+                                <include reference="OrY-GS-M1c"/>
+                                <include reference="ZLW-o4-Mqu"/>
+                                <include reference="6WT-Ku-ego"/>
                                 <include reference="pmo-u6-TEZ"/>
                                 <include reference="cAD-Db-59d"/>
                                 <include reference="VoL-UZ-pCh"/>
@@ -425,10 +433,7 @@
                                 <include reference="fhl-dz-kT7"/>
                                 <include reference="O4h-tn-gxM"/>
                                 <include reference="qG4-pT-UpV"/>
-                                <include reference="aXX-gh-ecs"/>
-                                <include reference="OrY-GS-M1c"/>
-                                <include reference="ZLW-o4-Mqu"/>
-                                <include reference="6WT-Ku-ego"/>
+                                <include reference="yfK-Nv-eLs"/>
                             </mask>
                             <mask key="constraints">
                                 <include reference="iy2-z9-i0L"/>
@@ -445,15 +450,15 @@
                                 <include reference="rVi-y9-pa4"/>
                                 <include reference="ebv-ud-3Hb"/>
                                 <include reference="z1N-ga-8OT"/>
-                                <include reference="9GS-sT-ifS"/>
-                                <include reference="fUu-0M-vxm"/>
-                                <include reference="NKW-os-8vQ"/>
+                                <include reference="Coh-1I-SIe"/>
+                                <include reference="VI0-6U-P5f"/>
+                                <include reference="afZ-gE-kPt"/>
                                 <include reference="d5P-WG-SZ6"/>
                                 <include reference="86n-eh-raB"/>
                                 <include reference="Tqw-1J-1Az"/>
                                 <include reference="BkN-Mu-nzS"/>
                                 <include reference="OfG-pt-w6N"/>
-                                <include reference="Y4u-0t-pBa"/>
+                                <include reference="UUH-pU-mAP"/>
                                 <include reference="cjE-J3-zRk"/>
                                 <include reference="Egr-gW-dBN"/>
                                 <include reference="q7k-tx-Lm1"/>
