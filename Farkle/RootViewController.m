@@ -23,6 +23,10 @@
 @property (weak, nonatomic) IBOutlet UILabel *currentPointsLabel;
 @property (weak, nonatomic) IBOutlet UILabel *player1TotalScoreLabel;
 @property (weak, nonatomic) IBOutlet UILabel *player2TotalScoreLabel;
+@property (weak, nonatomic) IBOutlet UILabel *player1TotalBankLabel;
+@property (weak, nonatomic) IBOutlet UILabel *player2TotalBankLabel;
+@property (strong, nonatomic) IBOutlet UIButton *bankYourPointButton;
+@property (strong, nonatomic) IBOutlet UIButton *rollLabel;
 
 @property (nonatomic) NSMutableArray *dice;
 @property (nonatomic) NSMutableArray *selectedDies;
@@ -35,8 +39,8 @@
 @property (nonatomic) NSInteger scoreForTurn;
 @property (nonatomic) NSInteger numberOfTurnsTaken;
 @property (nonatomic) NSInteger numberOfDiceScored;
+@property (nonatomic) BOOL player1;
 @property (nonatomic) BOOL isFirstRole;
-@property (nonatomic) BOOL Player1;
 
 @end
 
@@ -46,15 +50,15 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+
     self.dice = [NSMutableArray new];
-    self.Player1 = YES;
+    self.player1 = YES;
     self.isFirstRole = YES;
+
+    [self setLabelStyles];
+    [self resetAllDiceForNextRoll];
     [self setLabelDelegate];
     [self enableAllDiceForUserInteraction:NO];
-
-    self.player1TotalScoreLabel.textColor = RED_COLOR;
-    self.player2TotalScoreLabel.textColor = GREEN_COLOR;
-    self.currentPointsLabel.TextColor = ORANGE_COLOR;
 }
 
 // create an score object if one does not already exist (lazy instantiation)
@@ -65,6 +69,70 @@
     }
 
     return _score;
+}
+
+// label formatting
+- (void)setLabelStyles {
+    self.player1TotalBankLabel.text = @"0";
+    self.player2TotalBankLabel.text = @"0";
+    self.player1TotalScoreLabel.text = @"0";
+    self.player2TotalScoreLabel.text = @"0";
+
+    self.player1TotalScoreLabel.textColor = BLACK_COLOR;
+    self.player2TotalScoreLabel.textColor = BLACK_COLOR;
+    self.player1TotalBankLabel.textColor = BLACK_COLOR;
+    self.player2TotalBankLabel.textColor = BLACK_COLOR;
+    self.currentPointsLabel.textColor = RED_COLOR;
+    self.bankYourPointButton.layer.borderColor = [UIColor lightGrayColor].CGColor;
+    self.bankYourPointButton.layer.borderWidth = 2.0;
+    self.bankYourPointButton.layer.cornerRadius = 10;
+    self.rollLabel.layer.cornerRadius = 10;
+}
+
+#pragma mark - Helper Methods for Dice rolling
+
+// Clear all label values, set the background color back to
+// start color and set all DieLabels to Enabled
+-(void)resetAllDiceForNextRoll {
+    self.numberOfDiceScored = 0;
+
+    //reset the dice labels for the next roll
+    for (DieLabel *dieLabel in self.dieLabels) {
+        dieLabel.layer.cornerRadius = 10;
+        dieLabel.layer.backgroundColor = RED_COLOR.CGColor;
+        dieLabel.textColor = WHITE_COLOR;
+        dieLabel.text = @"0";
+        dieLabel.enabled = YES;
+    }
+}
+
+// roll all unchecked dice
+- (void)rollAllUncheckedDice {
+
+    for (DieLabel *dieLabel in self.dieLabels) {
+        [dieLabel roll];
+    }
+}
+
+// Remove all dice from the dice array. This method needs to be
+// called before each roll after the first roll
+- (void)resetSelectedDice {
+    [self.dice removeAllObjects];
+}
+
+// The players turn is over, update the score and update the view
+- (void)updatePlayersTotalScoreForEndOfTurn {
+    if (self.player1) {
+        self.player1TotalScore += self.scoreForTurn;
+        self.player1TotalScoreLabel.text = [NSString stringWithFormat:@"%li",(long)self.player1TotalScore];
+        self.scoreForTurn = 0;
+        self.player1TotalScoreLabel.text = @"0";
+    } else {
+        self.player2TotalScore += self.scoreForTurn;
+        self.player2TotalScoreLabel.text = [NSString stringWithFormat:@"%li",(long)self.player2TotalScore];
+        self.scoreForTurn = 0;
+        self.player2TotalScoreLabel.text = @"0";
+    }
 }
 
 #pragma mark - IBActions
@@ -79,7 +147,7 @@
         [self enableAllDiceForUserInteraction:YES];
         [self rollAllUncheckedDice];
         [self checkGameStateAfterRollForFarkel];
-        self.isFirstRole =  !self.isFirstRole;
+        self.isFirstRole = !self.isFirstRole;
     } else {
         [self determineScoreForSelectedDice];
         [self showScoreForTurn];
@@ -91,10 +159,14 @@
 }
 
 // Add the total points banked to the players total score
--(IBAction)onBankPointsScoredPressed:(id)sender {
+-(IBAction)onBankPointsScoredPressed:(UIButton *)button {
+
+    button.layer.borderColor = [UIColor lightGrayColor].CGColor;
+    button.layer.borderWidth = 2.0f;
+    button.layer.cornerRadius = 10;
 
     self.scoreForTurn += [self.score calculatePLayersTotalScore:self.dice];
-    [self bankedPointsAlert];
+    //[self bankedPointsAlert];
     [self updatePlayersTotalScoreForEndOfTurn];
     [self endCurrentPlayersTurnReadyForNewPlayer];
 }
@@ -109,8 +181,9 @@
         [self.dice addObject:dieLabel];
 
         //change the background color of dice which are saved
-        dieLabel.backgroundColor = GREEN_COLOR;
-        //dieLabel.textColor = [UIColor whiteColor];
+        dieLabel.layer.cornerRadius = 10;
+        dieLabel.layer.backgroundColor = GREEN_COLOR.CGColor;
+        dieLabel.textColor = WHITE_COLOR;
 
         //disable the selected label
         dieLabel.enabled = NO;
@@ -153,18 +226,20 @@
     NSInteger pointsPossible = 0;
     NSMutableArray *nonSelectedDice = [[NSMutableArray alloc]init];
 
-    for (DieLabel *dieLabel in self.view.subviews) {
-        if ([dieLabel isKindOfClass:[DieLabel class]] && dieLabel.enabled) {
-            [nonSelectedDice addObject:dieLabel];
-        }
+    for (DieLabel *dieLabel in self.dieLabels) {
+        [nonSelectedDice addObject:dieLabel];
     }
 
-    pointsPossible = [self.score calculatePLayersTotalScore: nonSelectedDice];
+    pointsPossible = [self.score calculatePLayersTotalScore:nonSelectedDice];
     NSLog(@"points possbile: %li",(long)pointsPossible);
+//    if (self.player1) {
+//        <#statements#>
+//    } else {
+//
+//    }
 
     if(pointsPossible == 0) {
-        //[self playerFarkeledAlert];
-        NSLog(@"Call player farkled alert");
+        [self playerFarkeledAlert];
     }
 
     nonSelectedDice = nil;
@@ -216,72 +291,20 @@
 // The player's turn has ended, we need to update the player's score, reset// the dice for rolling, clear selected dice, update the view and change the player
 - (void)endCurrentPlayersTurnReadyForNewPlayer {
 
-    if(self.Player1) {
+    if(self.player1) {
 
         [self updatePlayersTotalScoreForEndOfTurn];
-        self.Player1 = !self.Player1;
+        self.player1 = !self.player1;
         [self resetAllDiceForNextRoll];
         [self resetSelectedDice];
         [self nextPlayersTurn];
-        self.player1TotalScoreLabel.backgroundColor = GREEN_COLOR;
-        self.player2TotalScoreLabel.backgroundColor = RED_COLOR;
     } else {
 
         [self updatePlayersTotalScoreForEndOfTurn];
-        self.Player1 = !self.Player1;
+        self.player1 = !self.player1;
         [self resetAllDiceForNextRoll];
         [self resetSelectedDice];
         [self nextPlayersTurn];
-        self.player1TotalScoreLabel.backgroundColor = RED_COLOR;
-        self.player2TotalScoreLabel.backgroundColor = GREEN_COLOR;
-    }
-}
-
-#pragma mark - Helper Methods for Dice rolling
-
-// roll all unchecked dice
-- (void)rollAllUncheckedDice {
-
-    for (DieLabel *dieLabel in self.view.subviews) {
-        if ([dieLabel isKindOfClass:[DieLabel class]] && dieLabel.enabled) {
-            [dieLabel roll];
-        }
-    }
-}
-
-// Remove all dice from the dice array. This method needs to be
-// called before each roll after the first roll
-- (void)resetSelectedDice {
-    [self.dice removeAllObjects];
-}
-
-// Clear all label values, set the background color back to
-// start color and set all DieLabels to Enabled
--(void)resetAllDiceForNextRoll {
-    self.numberOfDiceScored = 0;
-
-    //reset the dice labels for the next roll
-    for (DieLabel *dieLabel in self.view.subviews) {
-        if ([dieLabel isKindOfClass:[DieLabel class]]) {
-            dieLabel.text = @"0";
-            dieLabel.backgroundColor = nil;
-            dieLabel.enabled = YES;
-        }
-    }
-}
-
-// The players turn is over, update the score and update the view
-- (void)updatePlayersTotalScoreForEndOfTurn {
-    if (self.Player1) {
-        self.player1TotalScore += self.scoreForTurn;
-        self.player1TotalScoreLabel.text = [NSString stringWithFormat:@"%li",(long)self.player1TotalScore];
-        self.scoreForTurn = 0;
-        self.currentPointsLabel.text = @"0";
-    } else {
-        self.player2TotalScore += self.scoreForTurn;
-        self.player2TotalScoreLabel.text = [NSString stringWithFormat:@"%li",(long)self.player2TotalScore];
-        self.scoreForTurn = 0;
-        self.currentPointsLabel.text = @"0";
     }
 }
 
@@ -300,7 +323,11 @@
 
 // Update the points for the current turn in the view
 - (void)showScoreForTurn {
-    self.currentPointsLabel.text = [NSString stringWithFormat:@" Current Turn Points: %li",(long)self.scoreForTurn];
+    if (self.player1) {
+        self.player1TotalScoreLabel.text = [NSString stringWithFormat:@"%li",(long)self.scoreForTurn];
+    } else {
+        self.player2TotalScoreLabel.text = [NSString stringWithFormat:@"%li",(long)self.scoreForTurn];
+    }
 }
 
 // Called alert notification of points banked/saved
@@ -317,8 +344,8 @@
 // Called alert when the game is over and the next Player starts their turn
 -(void)nextPlayersTurn {
 
-    UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"Next Player"
-                                                       message:@"End of turn, next player roll!"
+    UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"Next Player Rolls!"
+                                                       message:[NSString stringWithFormat:@"You banked %ld points!", (long)self.scoreForTurn]
                                                       delegate:self
                                              cancelButtonTitle:@"OK"
                                              otherButtonTitles: nil];
@@ -334,6 +361,7 @@
                                              cancelButtonTitle:@"OK"
                                              otherButtonTitles: nil];
     [alertView show];
+    [self resetAllDiceForNextRoll];
 }
 
 // When the alert view is dismissed, check if it is a Farkel state or Hot Dice state
@@ -348,12 +376,6 @@
     }
 }
 
-
-
-
-
-#pragma mark -
-#pragma mark -
 
 
 
